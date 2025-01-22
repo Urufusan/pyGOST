@@ -14,7 +14,7 @@ As of now, the library supports ECB, CBC, OFB, CFB and CTR modes.
 Here is an example of how the program should be used for both encryption and decryption.
 
 # Encryption
-
+```python
 from GOST import GOST
 
 import my_utils
@@ -31,12 +31,12 @@ gost.set_operation_mode(gost.CBC)
 
 gost.encrypt()
 
-// you can get the resulting ciphertext with gost.get_encrypted_msg() and the IV with gost.get_iv()
+# ! you can get the resulting ciphertext with gost.get_encrypted_msg() and the IV with gost.get_iv()
 
-// the IV is randomly generated if not provided in the setup phase
-
+# ! the IV is randomly generated if not provided in the setup phase
+```
 # Decryption
-
+```python
 from GOST import GOST
 
 import my_utils
@@ -45,9 +45,9 @@ gost = GOST()
 
 key, salt = my_utils.pbkdf2('Password', 'Salt')
 
-ciphertext = // a k&ast;64 character string, where k = 0, 1, ...
+ciphertext = # a k*64 character string, where k = 0, 1, ...
 
-iv = // a 256 character string containing only 0s and 1s
+iv = # a 256 character string containing only 0s and 1s
 
 gost.set_iv(iv)
 
@@ -58,7 +58,7 @@ gost.set_operation_mode(gost.CBC)
 gost.set_encrypted_msg(ciphertext)
 
 gost.decrypt()
-
+```
 # NOTES
 Beware that when the programs produces outputs, there could be some mismatches in the length of the strings.
 Suppose that the ciphertext is 63 zeros and a single 1. Then the result would be 1 because the 0s are trimmed out.
