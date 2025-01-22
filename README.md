@@ -1,4 +1,5 @@
 # pyGOST
+
 This Python program provides an implementation of the soviet GOST cipher.
 The GOST cipher is a symmetric block cipher that works on 64 bit blocks using 256 bit keys.
 The S-Boxes used in this implementation are conformed to the standard GOST R 34.12-2015.
@@ -14,6 +15,7 @@ As of now, the library supports ECB, CBC, OFB, CFB and CTR modes.
 Here is an example of how the program should be used for both encryption and decryption.
 
 # Encryption
+
 ```python
 from GOST import GOST
 
@@ -35,7 +37,9 @@ gost.encrypt()
 
 # ! the IV is randomly generated if not provided in the setup phase
 ```
+
 # Decryption
+
 ```python
 from GOST import GOST
 
@@ -59,7 +63,11 @@ gost.set_encrypted_msg(ciphertext)
 
 gost.decrypt()
 ```
+
 # NOTES
-Beware that when the programs produces outputs, there could be some mismatches in the length of the strings.
+
+~~Beware that when the programs produces outputs, there could be some mismatches in the length of the strings.
 Suppose that the ciphertext is 63 zeros and a single 1. Then the result would be 1 because the 0s are trimmed out.
-If you use the functions in my_utils (namely, hex_to_bin_mult_64 and leading_zeros_hex) you'll be able to overcome this problem.
+If you use the functions in my_utils (namely, hex_to_bin_mult_64 and leading_zeros_hex) you'll be able to overcome this problem.~~
+> Fixed!
+
